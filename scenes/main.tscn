@@ -1,0 +1,43 @@
+[gd_scene load_steps=10 format=3 uid="uid://bju4jxwr7a0pg"]
+
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_d36gk"]
+[ext_resource type="PackedScene" uid="uid://bpkphu8qj137m" path="res://scenes/bg.tscn" id="1_qy3kl"]
+[ext_resource type="PackedScene" uid="uid://b5pwnh1tmyrnl" path="res://scenes/ground.tscn" id="2_qu4oq"]
+[ext_resource type="PackedScene" uid="uid://bhtein0chknfn" path="res://scenes/dino.tscn" id="3_l41lx"]
+[ext_resource type="PackedScene" uid="uid://lyf4a3sklk1o" path="res://scenes/hud.tscn" id="5_cgpie"]
+[ext_resource type="AudioStream" uid="uid://2ttwg5t3ecrf" path="res://assets/sound/super-mario-death-sound-sound-effect-[AudioTrimmer.com].mp3" id="6_0id6m"]
+[ext_resource type="PackedScene" uid="uid://lotwuige1aee" path="res://scenes/game_over.tscn" id="6_6n2u1"]
+[ext_resource type="Texture2D" uid="uid://efyc104xmnos" path="res://assets/img/Op_Man.png" id="7_sox5d"]
+[ext_resource type="AudioStream" uid="uid://dl50d6wslpdno" path="res://assets/sound/BeepBox-Song.wav" id="8_wgcnw"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_d36gk")
+
+[node name="Bg" parent="." instance=ExtResource("1_qy3kl")]
+
+[node name="Ground" parent="." instance=ExtResource("2_qu4oq")]
+
+[node name="Dino" parent="." instance=ExtResource("3_l41lx")]
+position = Vector2(379, 489)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Dino"]
+position = Vector2(-47.375, -61.125)
+scale = Vector2(0.125, 0.125)
+stream = ExtResource("8_wgcnw")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="Dino"]
+process_mode = 3
+stream = ExtResource("6_0id6m")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+
+[node name="HUD" parent="." instance=ExtResource("5_cgpie")]
+
+[node name="GameOver" parent="." instance=ExtResource("6_6n2u1")]
+process_mode = 2
+
+[node name="OpMan" type="Sprite2D" parent="."]
+position = Vector2(204, 396)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_sox5d")

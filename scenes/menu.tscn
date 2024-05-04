@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq8eeicyi73ui"]
+
+[ext_resource type="Texture2D" uid="uid://du51an6u246fr" path="res://assets/img/Bnu_At.png" id="1_qxcde"]
+[ext_resource type="Script" path="res://scenes/menu.gd" id="1_t0y71"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t0y71")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("1_qxcde")
+centered = false
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 535.0
+offset_top = 235.0
+offset_right = 633.0
+offset_bottom = 282.0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
